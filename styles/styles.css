@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font: "Space Mono", monospace;
+  --strong-cyan: hsl(172, 67%, 45%);
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayish-cyan: hsl(186, 14%, 43%);
+  --grayish-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: var(--Light-grayish-cyan);
+  font-family: var(--font);
+}
+
+button,
+input {
+  font-family: var(--font);
+  width: 100%;
+}
+
+.container {
+  background: var(--light-grayish-cyan);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: var(--very-dark-cyan);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: .5rem;
+  padding: 2rem 0;
+}
+
+.title span {
+  display: block;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.bill {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.bill small,
+.tip small,
+.number-people small {
+  color: var(--dark-grayish-cyan);
+}
+
+.bill-value {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--very-light-grayish-cyan);
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  transition: .4s ease;
+}
+
+.bill-value:hover {
+  border: 2px solid var(--strong-cyan);
+}
+
+.bill-value img {
+  height: 1rem;
+}
+
+.bill-value span {
+  color: var(--very-dark-cyan);
+  font-size: 1.25rem;
+}
+
+.tip small {
+  margin-bottom: 1rem;
+}
+
+.btns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.btns button {
+  background: var(--very-dark-cyan);
+  color: var(--white);
+  border: none;
+  padding: .5rem;
+  border-radius: .25rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: .4s ease;
+}
+
+.btns button:hover {
+  background: var(--light-grayish-cyan);
+  color: var(--very-dark-cyan);
+}
+
+#tip-number {
+  border: none;
+  background: var(--very-light-grayish-cyan);
+  color: var(--very-dark-cyan);
+  border-radius: .25rem;
+  font-size: 1.2rem;
+  text-align: right;
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: .4s ease;
+}
+
+#tip-number:hover {
+  border: 2px solid var(--strong-cyan);
+}
+
+#tip-number::placeholder {
+  color: var(--dark-grayish-cyan);
+}
+
+#tip-number::-webkit-inner-spin-button {
+  appearance: none;
+}
