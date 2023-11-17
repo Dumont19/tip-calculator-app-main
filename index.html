@@ -17,8 +17,9 @@
     <div class="wrapper">
       <div class="inputs">
         <div class="bill">
+          <img src="images/icon-dollar.svg" alt="icon dollar">
           <label for="bill-value">Bill</label>
-          <input type="number" id="bill-value" placeholder="0">
+          <input type="number" min="1" id="bill-value" placeholder="0" required>
           </div>
         <div class="tip">
           <label for="tip-number">Select Tip %</label>
@@ -28,15 +29,16 @@
             <button class="tip-value">15%</button>
             <button class="tip-value">25%</button>
             <button class="tip-value">50%</button>
-            <input type="number" id="tip-number" placeholder="Custom">
+            <input type="number" min="1" id="tip-number" placeholder="Custom" required>
           </div>
         </div>
         <div class="number-people">
+          <img src="images/icon-person.svg" alt="icon person">
           <div class="n-people-header">
             <label for="n-people">Number of People</label>
             <small class="error-msg">Can't be zero</small>
           </div>
-          <input type="number" id="n-people" placeholder="0">
+          <input type="number" min="1" id="n-people" placeholder="0" required>
           </div>
       </div>
 
@@ -46,14 +48,14 @@
             <small class="tip-amount">Tip Amount</small>
             <small class="p-person">/ person</small>
           </div>
-          <div class="totals-r">$0.00</div>
+          <div class="totals-r" id="amount">$0.00</div>
         </div>
         <div class="total">
           <div class="total-l">
             <small class="total-person">Total</small>
             <small class="p-person">/ person</small>
           </div>
-          <div class="totals-r">$0.00</div>
+          <div class="totals-r" id="total">$0.00</div>
         </div>
         <button class="reset">Reset</button>
       </div>

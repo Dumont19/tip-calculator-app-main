@@ -22,7 +22,6 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  min-height: 100vh;
   background-color: var(--light-grayish-cyan);
   font-family: var(--font);
   font-size: 1.5rem;
@@ -38,7 +37,7 @@ input {
 
 .container {
   max-width: 60rem;
-  height: 100vh;
+  min-height: 100vh;
   background: var(--light-grayish-cyan);
   display: flex;
   flex-direction: column;
@@ -67,9 +66,26 @@ input {
   border-radius: 1.5rem;
 }
 
+.inputs {
+  padding: 1.5rem 0;
+}
+
 .bill,
 .tip {
+  position: relative;
   margin-bottom: 2rem;
+}
+
+.bill img {
+  position: absolute;
+  top: 62%;
+  margin-left: 1rem;
+}
+
+.number-people img {
+  position: absolute;
+  bottom: 24.5%;
+  margin-left: 1rem;
 }
 
 .bill label,
@@ -91,12 +107,11 @@ input {
   font-size: 1.5rem;
   color: var(--very-dark-cyan);
   cursor: pointer;
-  transition: .4s ease;
 }
 
-.bill input:hover,
-.number-people input:hover,
-.tip input:hover {
+.bill input:focus,
+.number-people input:focus,
+.tip input:focus {
   border: 2px solid var(--strong-cyan);
 }
 
@@ -136,7 +151,7 @@ input {
 }
 
 .btns button:hover {
-  background: var(--strong-cyan);
+  background: var(--light-grayish-cyan);
   color: var(--very-dark-cyan);
 }
 
@@ -145,7 +160,7 @@ input {
   justify-content: space-between;
 }
 
-.n-people-header .error-msg {
+.error-msg {
   display: none;
   color: var(--red);
   font-size: 1rem;
@@ -186,8 +201,6 @@ input {
   flex-direction: column;
 }
 
-
-
 .totals-r {
   font-size: 2rem;
 }
@@ -201,6 +214,11 @@ input {
   border-radius: .5rem;
   font-size: 1.5rem;
   text-transform: uppercase;
+  transition: .4s ease;
+}
+
+.totals button:hover {
+  background: var(--light-grayish-cyan);
 }
 
 .error {
@@ -227,7 +245,7 @@ input {
   }
 
   .total {
-    padding-bottom: 6rem;
+    padding-bottom: 11rem;
   }
 }
 
