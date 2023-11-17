@@ -15,22 +15,30 @@
   --light-grayish-cyan: hsl(185, 41%, 84%);
   --very-light-grayish-cyan: hsl(189, 41%, 97%);
   --white: hsl(0, 0%, 100%);
+  --red: hsl(0, 79%, 68%);
 }
 
 body {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  height: 100vh;
-  background: var(--Light-grayish-cyan);
+  min-height: 100vh;
+  background-color: var(--light-grayish-cyan);
   font-family: var(--font);
+  font-size: 1.5rem;
 }
 
 button,
 input {
+  border: none;
+  outline: none;
   font-family: var(--font);
   width: 100%;
 }
 
 .container {
+  max-width: 60rem;
+  height: 100vh;
   background: var(--light-grayish-cyan);
   display: flex;
   flex-direction: column;
@@ -55,48 +63,59 @@ input {
   flex-direction: column;
   gap: 2rem;
   background: var(--white);
-  padding: 2rem;
-  border-radius: 1.5rem 1.5rem 0 0;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
 }
 
-.bill {
-  display: flex;
-  flex-direction: column;
-  gap: .25rem;
+.bill,
+.tip {
+  margin-bottom: 2rem;
 }
 
-.bill small,
-.tip small,
-.number-people small {
-  color: var(--dark-grayish-cyan);
+.bill label,
+.number-people label,
+.tip label {
+  color: var(--grayish-cyan);
+  font-size: 1rem;
+  display: block;
+  margin-bottom: .75rem;
 }
 
-.bill-value {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.bill input, 
+.number-people input,
+.btns input{
   background: var(--very-light-grayish-cyan);
+  text-align: right;
   padding: .5rem 1rem;
   border-radius: .5rem;
+  font-size: 1.5rem;
+  color: var(--very-dark-cyan);
   cursor: pointer;
   transition: .4s ease;
 }
 
-.bill-value:hover {
+.bill input:hover,
+.number-people input:hover,
+.tip input:hover {
   border: 2px solid var(--strong-cyan);
 }
 
-.bill-value img {
-  height: 1rem;
+.bill input:focus,
+.number-people input:focus,
+.tip input:focus {
+  border: 2px solid var(--strong-cyan);
 }
 
-.bill-value span {
-  color: var(--very-dark-cyan);
-  font-size: 1.25rem;
+.bill input::placeholder,
+.number-people input::placeholder,
+.btns input::placeholder {
+  color: var(--grayish-cyan);
 }
 
-.tip small {
-  margin-bottom: 1rem;
+.bill input::-webkit-inner-spin-button,
+.number-people input::-webkit-inner-spin-button,
+.tip input::-webkit-inner-spin-button {
+  appearance: none;
 }
 
 .btns {
@@ -109,38 +128,110 @@ input {
   background: var(--very-dark-cyan);
   color: var(--white);
   border: none;
-  padding: .5rem;
-  border-radius: .25rem;
-  font-size: 1.2rem;
+  padding: .5rem 0;
+  border-radius: .3rem;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: .4s ease;
 }
 
 .btns button:hover {
-  background: var(--light-grayish-cyan);
+  background: var(--strong-cyan);
   color: var(--very-dark-cyan);
 }
 
-#tip-number {
+.n-people-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.n-people-header .error-msg {
+  display: none;
+  color: var(--red);
+  font-size: 1rem;
+}
+
+.totals {
+  background: var(--very-dark-cyan);
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 1rem;
+}
+
+.totals small {
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.totals .p-person {
+  color: var(--grayish-cyan);
+  font-size: .75rem;
+}
+
+.amount,
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--strong-cyan);
+  margin-bottom: 2.5rem;
+}
+
+.amount {
+  margin-bottom: 1.5rem;
+}
+
+.amount-l,
+.total-l {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.totals-r {
+  font-size: 2rem;
+}
+
+.totals button {
   border: none;
-  background: var(--very-light-grayish-cyan);
-  color: var(--very-dark-cyan);
-  border-radius: .25rem;
-  font-size: 1.2rem;
-  text-align: right;
-  padding: 0 1rem;
   cursor: pointer;
-  transition: .4s ease;
+  background: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+  padding: .75rem 0;
+  border-radius: .5rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
 }
 
-#tip-number:hover {
-  border: 2px solid var(--strong-cyan);
+.error {
+  border: 2px solid var(--red);
 }
 
-#tip-number::placeholder {
-  color: var(--dark-grayish-cyan);
+@media (min-width: 600px) {
+  .wrapper {
+    flex-direction: row;
+  }
+
+  .inputs {
+    width: 50%;
+  }
+
+  .btns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .totals {
+    width: 50%;
+  }
+
+  .total {
+    padding-bottom: 6rem;
+  }
 }
 
-#tip-number::-webkit-inner-spin-button {
-  appearance: none;
-}
+
+
+
+
