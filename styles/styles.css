@@ -84,7 +84,7 @@ input {
 
 .number-people img {
   position: absolute;
-  bottom: 24.5%;
+  bottom: 24.25%;
   margin-left: 1rem;
 }
 
@@ -247,6 +247,15 @@ input {
   .total {
     padding-bottom: 11rem;
   }
+}
+
+@media (max-width: 599px) {
+  .number-people img {
+    position: absolute;
+    bottom: 32.5%;
+    margin-left: 1rem;
+  }
+  
 }
 
 

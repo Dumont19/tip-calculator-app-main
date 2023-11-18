@@ -1,63 +1,65 @@
 const tipCalculator = () => {
-  const inputBill = document.querySelector('#bill-value')
-  const inputTip = document.querySelector('#tip-number')
-  const inputPeople = document.querySelector('#n-people')
+  const inputBill = document.querySelector("#bill-value")
+  const inputTip = document.querySelector("#tip-number")
+  const inputPeople = document.querySelector("#n-people")
 
-  const bill = inputBill.value
-  const tip = inputTip.value
-  const people = inputPeople.value
+  const tipBtns = document.querySelector(".btns")
+  const tipValue = Array.from(document.querySelectorAll(".tip-value"))
 
-  const tipBtns = document.querySelector('.btns')
-  const tipValue = Array.from(document.querySelectorAll('.tip-value'))
-  const fiveTip = tipBtns[0]
-  const tenTip = tipBtns[1]
-  const fifteenTip = tipBtns[2]
-  const twentyFive = tipBtns[3]
-  const fifty = tipBtns[4]
+  const amount = document.querySelector("#amount")
+  const total = document.querySelector("#total")
+  const reset = document.querySelector(".reset")
 
-  const amount = document.querySelector('#amount')
-  const total = document.querySelector('#total')
-  const reset = document.querySelector('.reset')
+  const errorMessage = document.querySelector(".error-msg")
 
-  const errorMessage = document.querySelector('.error-msg')
-
-  document.body.addEventListener('keydown', event => {
-    if (event.key === '-') {
+  document.body.addEventListener("keydown", (event) => {
+    if (event.key === "-") {
       event.preventDefault()
     }
   })
 
   const validateInput = () => {
-    if (people === '' || people === 0) {
-      errorMessage.style.display = 'block'
-      inputPeople.classList.add('error')
+    if (inputPeople.value === "" || inputPeople.value === 0) {
+      errorMessage.style.display = "block"
+      inputPeople.classList.add("error")
     } else {
-      errorMessage.style.display = 'none'
-      inputPeople.classList.remove('error')
-      
-      showResult()
+      errorMessage.style.display = "none"
+      inputPeople.classList.remove("error")
     }
   }
 
   const calculate = () => {
-    const resultAmount = () => {
-      tipValue.forEach(value => {
-        value.addEventListener('click', event => {
-          const tipBtnValue = event.target
-          return tipBtnValue
-        })
-      })
-      console.log(tipValue)
-    }
-  }
+    tipValue.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        validateInput()
+        const bill = Number(inputBill.value)
+        const tip = Number(inputTip.value)
+        const people = Number(inputPeople.value)
+        const btn = event.target.value
+        const amountValue = (bill * (btn / 100) / people).toFixed(2)
+        const totalValue = ((((btn / 100) * bill) + bill) / people).toFixed(2)
 
-  const showResult = () => {
-    document.body.addEventListener('click', () => {
-      validateInput()
-      calculate()
+        if (inputBill.value === '' || inputPeople.value === '') {
+          amount.textContent = `$0.00`
+          total.textContent = `$0.00`
+        } else {
+          total.textContent = `$${totalValue}`
+          amount.textContent = `$${amountValue}`
+        }
+      })
     })
   }
-  showResult()
+  calculate()
+
+  const resetInputs = () => {
+    reset.addEventListener("click", () => {
+      inputBill.value = ""
+      inputTip.value = ""
+      inputPeople.value = ""
+      amount.textContent = "$0.00"
+      total.textContent = "$0.00"
+    })
+  }
+  resetInputs()
 }
 tipCalculator()
-
