@@ -221,6 +221,15 @@ input {
   background: var(--light-grayish-cyan);
 }
 
+.disabled {
+  opacity: .25;
+}
+
+.active {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}
+
 .error {
   border: 2px solid var(--red);
 }
