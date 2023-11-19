@@ -37,6 +37,12 @@ const tipCalculator = () => {
     })
   })
 
+  inputTip.addEventListener('click', () => {
+    tipValue.forEach((btn) => {
+      btn.classList.remove('selected')
+    })
+  })
+
   inputTip.addEventListener('blur', () => {
     const tipCustom = Number(inputTip.value)
     const billCustom = Number(inputBill.value)
