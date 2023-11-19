@@ -84,7 +84,7 @@ input {
 
 .number-people img {
   position: absolute;
-  bottom: 24.25%;
+  bottom: 26.25%;
   margin-left: 1rem;
 }
 
@@ -139,7 +139,7 @@ input {
   gap: 1rem;
 }
 
-.btns button {
+.tip-value  {
   background: var(--very-dark-cyan);
   color: var(--white);
   border: none;
@@ -225,9 +225,14 @@ input {
   opacity: .25;
 }
 
-.active {
-  background-color: var(--strong-cyan);
+.selected {
+  background: var(--strong-cyan);
   color: var(--very-dark-cyan);
+}
+
+.inactive {
+  background: var(--very-dark-cyan);
+  color: var(--white);
 }
 
 .error {
@@ -237,6 +242,10 @@ input {
 @media (min-width: 600px) {
   .wrapper {
     flex-direction: row;
+  }
+
+  .title {
+    padding: 0 0 2rem 0;
   }
 
   .inputs {
