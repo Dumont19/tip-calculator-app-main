@@ -13,13 +13,13 @@ const tipCalculator = () => {
   const errorMessage = document.querySelector('.error-msg')
 
   document.body.addEventListener('keydown', (event) => {
-    if (event.key === '-' || event.key === '0') {
+    if (event.key === '-') {
       event.preventDefault()
     }
   })
 
   const validateInput = () => {
-    if (inputPeople.value === '' || inputPeople.value === '0') {
+    if (inputPeople.value === '') {
       errorMessage.style.display = 'block'
       inputPeople.classList.add('error')
     } else {
